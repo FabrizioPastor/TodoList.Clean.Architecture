@@ -8,7 +8,7 @@ using TodoList.ToDosItems.Domain;
 
 namespace TodoList.ToDosItems.Shared.Infraestrucutre.Persistence.EntityFramework
 {
-    class TodoListContext : DbContext
+    public class TodoListContext : DbContext
     {
         public DbSet<ToDoItem> ToDoItems { get; set; }
 
