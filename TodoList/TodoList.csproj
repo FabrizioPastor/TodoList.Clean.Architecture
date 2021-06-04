@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Project\" />
-    <Folder Include="ToDosItems\Application\" />
   </ItemGroup>
 
   <ItemGroup>
