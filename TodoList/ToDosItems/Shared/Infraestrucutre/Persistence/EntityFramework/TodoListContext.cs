@@ -16,7 +16,7 @@ namespace TodoList.ToDosItems.Shared.Infraestrucutre.Persistence.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("Server=localhost;Database=myDataBase;Uid=root;Pwd=*Saass_2021@mySQL*;");
+            optionsBuilder.UseMySQL("Server=localhost;Database=todo_list_application;Uid=root;Pwd=*Saass_2021@mySQL*;");
         }
     }
 }
