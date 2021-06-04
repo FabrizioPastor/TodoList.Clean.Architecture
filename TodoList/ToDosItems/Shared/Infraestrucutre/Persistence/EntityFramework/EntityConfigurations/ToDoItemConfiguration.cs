@@ -13,15 +13,23 @@ namespace TodoList.ToDosItems.Shared.Infraestrucutre.Persistence.EntityFramework
     {
         public void Configure(EntityTypeBuilder<ToDoItem> builder)
         {
-            builder.ToTable("todo_item").HasKey(t => t.TodoItemId);
-            builder.Property(t => t.TodoItemId)
+            builder.ToTable("todo_item").OwnsOne(t => t.TodoItemId)
+                .HasKey(v => v.Value);
+
+            builder.OwnsOne(t => t.TodoItemId)
+                .Property(v => v.Value)
                 .HasField("todo_id");
+
             builder.OwnsOne(t => t.Title)
                 .Property(v => v.Value)
                 .HasField("title");
-            builder.Property(t => t.Description)
+
+            builder.OwnsOne(t => t.Description)
+                .Property(v => v.Value)
                 .HasField("description");
-            builder.Property(t => t.IsDone)
+
+            builder.OwnsOne(t => t.IsDone)
+                .Property(v => v.Value)
                 .HasField("is_done");
         }
     }
