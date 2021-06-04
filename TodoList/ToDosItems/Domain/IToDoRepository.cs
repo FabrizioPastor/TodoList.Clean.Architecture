@@ -9,6 +9,6 @@ namespace TodoList.ToDosItems.Domain
     public interface IToDoRepository
     {
         Task Save(ToDoItem todoItem);
-        Task<ToDoItem> Search(int id);
+        Task<IEnumerable<ToDoItem>> SearchAll(int id);
     }
 }
