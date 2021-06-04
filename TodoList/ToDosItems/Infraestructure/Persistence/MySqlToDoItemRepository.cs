@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace TodoList.ToDosItems.Infraestructure.Persistence
 {
     public class MySqlToDoItemRepository : IToDoRepository
     {
-        private TodoListContext _conext;
+        private readonly TodoListContext _conext;
 
         public MySqlToDoItemRepository(TodoListContext context) {
             _conext = context;
@@ -22,9 +23,9 @@ namespace TodoList.ToDosItems.Infraestructure.Persistence
             await _conext.SaveChangesAsync();
         }
 
-        public Task<ToDoItem> Search(int id)
+        public async Task<IEnumerable<ToDoItem>> SearchAll(int id)
         {
-            throw new NotImplementedException();
+            return await _conext.ToDoItems.ToListAsync();
         }
     }
 }
