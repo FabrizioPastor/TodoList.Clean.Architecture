@@ -11,16 +11,15 @@ namespace TodoList.ToDosItems.Domain
     public class ToDoTitle : StringValueObject
     {
         public ToDoTitle(string value) : base(value) {
-            if (string.IsNullOrEmpty(value)) {
+            IsEmpty(value);
+        }
+
+        private static void IsEmpty(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
                 throw new InvalidEnumArgumentException("The title of the to-do cannot be null or empty");
             }
         }
-
-        //private  static bool IsEmpty(string value) {
-        //    if (value.Trim() == "") {
-        //        return true;
-        //    }
-        //    return false;
-        //}
     }
 }
