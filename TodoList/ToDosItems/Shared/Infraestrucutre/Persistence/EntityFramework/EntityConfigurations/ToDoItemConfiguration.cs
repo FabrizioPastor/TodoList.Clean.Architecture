@@ -13,8 +13,16 @@ namespace TodoList.ToDosItems.Shared.Infraestrucutre.Persistence.EntityFramework
     {
         public void Configure(EntityTypeBuilder<ToDoItem> builder)
         {
-            
-            builder.HasKey(t => t.TodoItemId);
+            builder.ToTable("todo_item").HasKey(t => t.TodoItemId);
+            builder.Property(t => t.TodoItemId)
+                .HasField("todo_id");
+            builder.OwnsOne(t => t.Title)
+                .Property(v => v.Value)
+                .HasField("title");
+            builder.Property(t => t.Description)
+                .HasField("description");
+            builder.Property(t => t.IsDone)
+                .HasField("is_done");
         }
     }
 }
