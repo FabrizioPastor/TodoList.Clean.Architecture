@@ -23,7 +23,7 @@ namespace TodoList.ToDosItems.Infraestructure.Persistence
             await _conext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<ToDoItem>> SearchAll(int id)
+        public async Task<IEnumerable<ToDoItem>> SearchAll()
         {
             return await _conext.ToDoItems.ToListAsync();
         }
