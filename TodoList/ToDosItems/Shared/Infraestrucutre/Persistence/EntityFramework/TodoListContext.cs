@@ -12,11 +12,16 @@ namespace TodoList.ToDosItems.Shared.Infraestrucutre.Persistence.EntityFramework
     {
         public DbSet<ToDoItem> ToDoItems { get; set; }
 
-        public TodoListContext(DbContextOptions<TodoListContext> options) : base(options) { }
+        // public TodoListContext(DbContextOptions<TodoListContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL("Server=localhost;Database=todo_list_application;Uid=root;Pwd=*Saass_2021@mySQL*;");
+        }
+        
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new ToDoItemConfiguration());
         }
     }
 }
