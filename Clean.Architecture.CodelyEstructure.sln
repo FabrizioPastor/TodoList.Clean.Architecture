@@ -7,9 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D441A1B-CC6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{BC1E0975-788E-4619-92CF-FBF747BDDDFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList", "TodoList\TodoList.csproj", "{A2E12141-64F8-4225-BF3C-2876147FC6DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList", "TodoList\TodoList.csproj", "{A2E12141-64F8-4225-BF3C-2876147FC6DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{94FC6153-8A4D-425A-AA32-0BD1CEEAC900}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{94FC6153-8A4D-425A-AA32-0BD1CEEAC900}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoConsoleApplication", "ToDoConsoleApplication", "{90400177-8FA8-43F2-B1C4-1BF66B4B84E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoConsoleApp", "ToDoConsoleApp\ToDoConsoleApp.csproj", "{9F9E0BBF-51F4-4AEC-9B12-8693EE803DF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{94FC6153-8A4D-425A-AA32-0BD1CEEAC900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94FC6153-8A4D-425A-AA32-0BD1CEEAC900}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94FC6153-8A4D-425A-AA32-0BD1CEEAC900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9E0BBF-51F4-4AEC-9B12-8693EE803DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9E0BBF-51F4-4AEC-9B12-8693EE803DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9E0BBF-51F4-4AEC-9B12-8693EE803DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9E0BBF-51F4-4AEC-9B12-8693EE803DF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A2E12141-64F8-4225-BF3C-2876147FC6DF} = {0D441A1B-CC6A-46D3-AC78-5B2B14D5895E}
 		{94FC6153-8A4D-425A-AA32-0BD1CEEAC900} = {0D441A1B-CC6A-46D3-AC78-5B2B14D5895E}
+		{90400177-8FA8-43F2-B1C4-1BF66B4B84E2} = {BC1E0975-788E-4619-92CF-FBF747BDDDFA}
+		{9F9E0BBF-51F4-4AEC-9B12-8693EE803DF8} = {90400177-8FA8-43F2-B1C4-1BF66B4B84E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {76C04554-728E-4A9A-AC6D-1745BC19511E}
