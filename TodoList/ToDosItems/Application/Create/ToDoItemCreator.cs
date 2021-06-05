@@ -11,7 +11,7 @@ namespace TodoList.ToDosItems.Application.Create
     {
         private readonly IToDoRepository _context;
 
-        public TodoItemCreator(IToDoRepository conext) => _context = conext;
+        public ToDoItemCreator(IToDoRepository conext) => _context = conext;
 
         public async Task CreateToDoItem(int id, string title, string description, bool isDone) {
             var todoId = new ToDoId(id);
