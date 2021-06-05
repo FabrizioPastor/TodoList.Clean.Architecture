@@ -7,7 +7,7 @@ using TodoList.ToDosItems.Domain;
 
 namespace TodoList.ToDosItems.Application.Create
 {
-    public class TodoItemCreator
+    public class ToDoItemCreator
     {
         private readonly IToDoRepository _context;
 
