@@ -11,21 +11,21 @@ namespace TodoList.ToDosItems.Infraestructure.Persistence
 {
     public class MySqlToDoItemRepository : IToDoRepository
     {
-        private readonly TodoListContext _conext;
+        private readonly TodoListContext _context;
 
         public MySqlToDoItemRepository(TodoListContext context) {
-            _conext = context;
+            _context = context;
         }
 
         public async Task Save(ToDoItem todoItem)
         {
-            await _conext.ToDoItems.AddAsync(todoItem);
-            await _conext.SaveChangesAsync();
+            await _context.ToDoItems.AddAsync(todoItem);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<ToDoItem>> SearchAll()
         {
-            return await _conext.ToDoItems.ToListAsync();
+            return await _context.ToDoItems.ToListAsync();
         }
     }
 }
