@@ -21,6 +21,10 @@ namespace TodoList.ToDosItems.Domain
             IsDone = isDone;
         }
 
+        private ToDoItem()
+        {
+        }
+
         public void CheckAsCompleted() {
             IsDone = new ToDoIsDone(true);
         }
