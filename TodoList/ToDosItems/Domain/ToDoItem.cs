@@ -9,9 +9,9 @@ namespace TodoList.ToDosItems.Domain
 {
     public class ToDoItem : AggregateRoot
     {
-        public ToDoId TodoItemId { get; private set; }
-        public ToDoTitle Title { get; private set; }
-        public ToDoDescription Description { get; private set; }
+        public ToDoId TodoItemId { get; }
+        public ToDoTitle Title { get; }
+        public ToDoDescription Description { get; }
         public ToDoIsDone IsDone { get; private set; }
 
         public ToDoItem(ToDoId id, ToDoTitle title, ToDoDescription description, ToDoIsDone isDone) {
@@ -29,7 +29,7 @@ namespace TodoList.ToDosItems.Domain
             IsDone = new ToDoIsDone(true);
         }
 
-        public void TogleCompleted() {
+        public void ToggleCompleted() {
             IsDone = new ToDoIsDone(!IsDone.Value);
         }
 

@@ -6,16 +6,16 @@ namespace TodoList.ToDosItems.Application.SearchAll
 {
     public class ToDoItemSearcher
     {
-        private readonly IToDoRepository _context;
+        private readonly IToDoRepository toDoRepository;
 
-        public ToDoItemSearcher(IToDoRepository context)
+        public ToDoItemSearcher(IToDoRepository toDoRepository)
         {
-            _context = context;
+            this.toDoRepository = toDoRepository;
         }
 
         public async Task<IEnumerable<ToDoItem>> SearchAllToDoItems()
         {
-            return await _context.SearchAll();
+            return await toDoRepository.SearchAll();
         }
     }
 }
