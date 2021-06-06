@@ -17,7 +17,7 @@ namespace ToDoListTest.ToDosItems.Application.SearchAll
         public async Task AllToDoSearch()
         {
             var repository = new MySqlToDoItemRepository(new TodoListContext());
-            var useCase = new ToDoItemSearcher(repository);
+            var useCase = new AllToDoItemSearcher(repository);
             var result = await useCase.SearchAllToDoItems();
             Assert.IsNotNull(result); 
         }

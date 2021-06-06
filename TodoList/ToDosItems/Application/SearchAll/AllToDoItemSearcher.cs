@@ -4,11 +4,11 @@ using TodoList.ToDosItems.Domain;
 
 namespace TodoList.ToDosItems.Application.SearchAll
 {
-    public class ToDoItemSearcher
+    public class AllToDoItemSearcher
     {
         private readonly IToDoRepository toDoRepository;
 
-        public ToDoItemSearcher(IToDoRepository toDoRepository)
+        public AllToDoItemSearcher(IToDoRepository toDoRepository)
         {
             this.toDoRepository = toDoRepository;
         }
