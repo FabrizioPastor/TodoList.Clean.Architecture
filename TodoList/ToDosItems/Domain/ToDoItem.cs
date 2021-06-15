@@ -20,7 +20,8 @@ namespace TodoList.ToDosItems.Domain
             Description = description;
             IsDone = isDone;
         }
-
+        
+        //Used by EntityFramework 
         private ToDoItem()
         {
         }
