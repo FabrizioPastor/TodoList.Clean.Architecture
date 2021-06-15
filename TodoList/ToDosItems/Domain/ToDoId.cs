@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace TodoList.ToDosItems.Domain
 {
-    public class ToDoId : IntValueObject
+    public class ToDoId : Uuid
     {
-        public ToDoId(int value) : base(value)
+        public ToDoId(string value) : base(value)
         {
         }
     }
