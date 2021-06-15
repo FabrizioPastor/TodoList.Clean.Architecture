@@ -19,7 +19,9 @@ namespace TodoList.ToDosItems.Shared.Infraestrucutre.Persistence.EntityFramework
 
             builder.Property(x => x.TodoItemId)
                 .HasConversion(v => v.Value, v => new ToDoId(v))
-                .HasColumnName("todo_id");
+                .HasColumnName("todo_id")
+                .HasColumnType("BINARY(36)")
+                .HasMaxLength(34);
             
             builder.Property(x => x.Title)
                 .HasConversion(v => v.Value, v => new ToDoTitle(v))

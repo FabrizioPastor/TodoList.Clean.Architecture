@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoList.ToDosItems.Application;
@@ -18,8 +19,8 @@ namespace ToDoListTest.ToDosItems.Application.Create
         {
             var repository = new MySqlToDoItemRepository(new TodoListContext());
             var useCase = new ToDoItemCreator(repository);
-
-            await useCase.CreateToDoItem(2, "My title", "My description", false);
+            
+            await useCase.CreateToDoItem(Guid.NewGuid().ToString(), "My title", "My description");
         }
     }
 }

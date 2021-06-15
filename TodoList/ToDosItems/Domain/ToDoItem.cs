@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Shared.Domain.AggregateRoot;
+using Shared.Domain.ToDosItems.Domain;
 
 namespace TodoList.ToDosItems.Domain
 {
@@ -35,8 +36,11 @@ namespace TodoList.ToDosItems.Domain
         }
 
         public static ToDoItem Create(ToDoId id, ToDoTitle title, ToDoDescription description) {
-            //TODO: Implement domain events
-            return new ToDoItem(id, title, description, new ToDoIsDone(false));
+            var toDoItem = new ToDoItem(id, title, description, new ToDoIsDone(false));
+
+            toDoItem.Record(new ToDoItemCreatedDomainEvent(id.Value, title.Value, description.Value, false)); 
+            
+            return toDoItem;
         }
 
         public Dictionary<string, object> ToPrimitive() {
@@ -51,7 +55,7 @@ namespace TodoList.ToDosItems.Domain
         
         public static ToDoItem FromPrimitive(Dictionary<string, object> primitive) {
             return new ToDoItem(
-                new ToDoId(Convert.ToInt32(primitive["TodoItemId"])),
+                new ToDoId(Convert.ToString(primitive["TodoItemId"])),
                 new ToDoTitle(Convert.ToString(primitive["Title"])),
                 new ToDoDescription(Convert.ToString(primitive["Description"])),
                 new ToDoIsDone(Convert.ToBoolean(primitive["IsDone"]))
