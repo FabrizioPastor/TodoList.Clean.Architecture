@@ -13,13 +13,12 @@ namespace TodoList.ToDosItems.Application.Create
 
         public ToDoItemCreator(IToDoRepository conext) => _context = conext;
 
-        public async Task CreateToDoItem(int id, string title, string description, bool isDone) {
+        public async Task CreateToDoItem(string id, string title, string description) {
             var todoId = new ToDoId(id);
             var todoTitle = new ToDoTitle(title);
             var todoDescription = new ToDoDescription(description);
-            var todoIsDone = new ToDoIsDone(isDone);
 
-            var toDoItem = new ToDoItem(todoId, todoTitle, todoDescription, todoIsDone);
+            var toDoItem = ToDoItem.Create(todoId, todoTitle, todoDescription);
 
             await _context.Save(toDoItem);
         }
