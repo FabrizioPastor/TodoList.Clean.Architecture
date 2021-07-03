@@ -27,5 +27,17 @@ namespace TodoList.ToDosItems.Infraestructure.Persistence
         {
             return await _context.ToDoItems.ToListAsync();
         }
+
+        public async Task Update(ToDoItem toDoItem)
+        {
+            var todo = await _context.ToDoItems.FirstOrDefaultAsync(
+                 x => 
+                    x.TodoItemId.Value == toDoItem.TodoItemId.Value
+                    );
+            
+            todo = toDoItem;
+            
+            await _context.SaveChangesAsync();
+        }
     }
 }

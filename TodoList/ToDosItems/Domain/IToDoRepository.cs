@@ -10,5 +10,6 @@ namespace TodoList.ToDosItems.Domain
     {
         Task Save(ToDoItem todoItem);
         Task<IEnumerable<ToDoItem>> SearchAll();
+        Task Update(ToDoItem toDoItem);
     }
 }
