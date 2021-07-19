@@ -35,6 +35,16 @@ namespace TodoList.ToDosItems.Domain
             IsDone = new ToDoIsDone(!IsDone.Value);
         }
 
+        /// <summary>
+        /// El name constructor es usado para crear instancias de nuestra clase que no necesariamente
+        /// quiere decir que sean "Nuevas" creaciones de este, por ejemplo es distinto querer crear
+        /// un todoitem que esté llegando desde base de datos a querer crear un nuevo todoitem que
+        /// se vaya a registrar en la base de datos
+        /// </summary>
+        /// <param name="id">UUID del todoItem</param>
+        /// <param name="title">Titulol del todoitem </param>
+        /// <param name="description">Descripción del todoitem</param>
+        /// <returns>retorna una instancia de ToDoItem</returns>
         public static ToDoItem Create(ToDoId id, ToDoTitle title, ToDoDescription description) {
             var toDoItem = new ToDoItem(id, title, description, new ToDoIsDone(false));
 

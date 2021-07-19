@@ -22,7 +22,6 @@ namespace ToDoListTest.ToDosItems.Application.SearchAll
             var result = await useCase.SearchAllToDoItems();
             Assert.IsNotNull(result); 
         }
-        
         [TestMethod]
         public async Task AllToDoSearchDapper()
         {

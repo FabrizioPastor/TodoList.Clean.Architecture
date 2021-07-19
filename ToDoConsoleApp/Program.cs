@@ -11,11 +11,11 @@ namespace ToDoConsoleApp
         static async Task Main(string[] args)
         {
             try
-            {
-                
+            {   
                 var repository = new MySqlToDoItemRepository(new TodoListContext());
-                var toDoSearcher = new ToDoItemSearcher(repository);
+                var toDoSearcher = new AllToDoItemSearcher(repository);
                 var response = await toDoSearcher.SearchAllToDoItems();
+
                 Console.WriteLine("Message from console");
             }
             catch (Exception e)
