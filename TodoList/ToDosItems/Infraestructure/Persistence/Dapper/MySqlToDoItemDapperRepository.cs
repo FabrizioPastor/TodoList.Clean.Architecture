@@ -22,34 +22,28 @@ namespace TodoList.ToDosItems.Infraestructure.Persistence.Dapper
 
         public async Task Save(ToDoItem todoItem)
         {
-            await Task.Run(() =>
-            {
-                const string sql = "INSERT INTO todo_item (todo_id, title, description, is_done) " +
+            const string sql = "INSERT INTO todo_item (todo_id, title, description, is_done) " +
                                    " VALUES (@todo_id, @title, @description, @is_done)";
 
-                _connection.ExecuteAsync(sql, new
-                    {
-                        todo_id = todoItem.TodoItemId.Value,
-                        title = todoItem.Title.Value,
-                        description = todoItem.Description.Value,
-                        is_done = todoItem.IsDone.Value
-                    } );
+            await _connection.ExecuteAsync(sql, new {
+                todo_id = todoItem.TodoItemId.Value,
+                title = todoItem.Title.Value,
+                description = todoItem.Description.Value,
+                is_done = todoItem.IsDone.Value
             });
         }
 
-        public Task<IEnumerable<ToDoItem>> SearchAll()
+        public async Task<IEnumerable<ToDoItem>> SearchAll()
         {
             using IDbConnection db = _connection;
-            var listToDoItems = db.QueryAsync("SELECT * FROM todo_item").Result.Select(
-                obj =>
-                    new ToDoItem(
+            var listToDoItems = await db.QueryAsync("SELECT * FROM todo_item");
+            return listToDoItems.Select(
+                obj =>  new ToDoItem(
                         new ToDoId((string)Encoding.UTF8.GetString(obj.todo_id))
                         , new ToDoTitle((string)obj.title)
                         , new ToDoDescription((string)obj.description)
                         , new ToDoIsDone((bool)Convert.ToBoolean(obj.is_done))
                     ));
-
-            return Task.FromResult(listToDoItems) ;
         }
 
         public async Task Update(ToDoItem toDoItem)
